@@ -1,3 +1,7 @@
+#region License
+// Copyright (C) 2021 Rejuvena Team, MIT License
+#endregion
+
 using System;
 using System.Collections.Generic;
 using NUnit.Framework;
