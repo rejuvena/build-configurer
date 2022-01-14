@@ -44,9 +44,6 @@ namespace Rejuvena.BuildConfigurer
 
         public bool IncludePdb { get; set; } = true;
 
-        [Obsolete("Unused in 1.4, obsolete in 1.3.")]
-        public int LanguageVersion { get; set; } = -1;
-
         public ModSide Side { get; set; } = ModSide.Both;
 
         public List<string> SortAfter { get; set; } = new List<string>();
@@ -59,7 +56,6 @@ namespace Rejuvena.BuildConfigurer
         protected StringBuilder WriteOption(StringBuilder stringBuilder, string optionName, List<string> optionValues) =>
             stringBuilder.AppendLine($"{optionName} = {string.Join(", ", optionValues)}");
 
-        // build.txt expects lowercase
         protected StringBuilder WriteOption(StringBuilder stringBuilder, string optionName, bool optionValue) =>
             stringBuilder.AppendLine($"{optionName} = {(optionValue ? "true" : "false")}");
 
@@ -80,7 +76,6 @@ namespace Rejuvena.BuildConfigurer
             WriteOption(builder, "includeSource", IncludeSource);
             WriteOption(builder, "buildIgnore", BuildIgnore);
             WriteOption(builder, "includePDB", IncludePdb);
-            // WriteOption(builder, "languageVersion", LanguageVersion.ToString());
             WriteOption(builder, "side", Side.ToString());
             WriteOption(builder, "sortAfter", SortAfter);
             WriteOption(builder, "sortBefore", SortBefore);
